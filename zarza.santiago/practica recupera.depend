@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1497633284 source:c:\users\santiago\desktop\practica recupera\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1497633284 c:\users\santiago\desktop\practica recupera\arraylist.h
+
+1512525162 source:c:\users\santiago\desktop\practica recupera\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+
+1512524641 c:\users\santiago\desktop\practica recupera\funciones.h
+	"ArrayList.h"
+
+1512513266 c:\users\santiago\desktop\practica recupera\lecturaarchivo.h
+	"ArrayList.h"
+
+1512513293 source:c:\users\santiago\desktop\practica recupera\lecturaarchivo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Funciones.h"
+	"LecturaArchivo.h"
+	"ArrayList.h"
+
+1512524860 source:c:\users\santiago\desktop\practica recupera\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+
+1512568239 source:c:\users\alumno\desktop\zarza.santiago\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+
+1512568317 c:\users\alumno\desktop\zarza.santiago\funciones.h
+	"ArrayList.h"
+
+1512565079 c:\users\alumno\desktop\zarza.santiago\arraylist.h
+
+1512568252 source:c:\users\alumno\desktop\zarza.santiago\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1512568295 source:c:\users\alumno\desktop\zarza.santiago\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+
