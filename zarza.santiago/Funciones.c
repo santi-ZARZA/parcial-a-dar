@@ -48,7 +48,7 @@ int Lectuta(ArrayList* lista,eTrabajador* trabajador, FILE* archivo)
                     trabajador->edad = atoi(edad);
 
 
-                    al_add(lista,trabajador);
+                    lista->add(lista,trabajador);
                 }
                 else
                 {
@@ -107,14 +107,14 @@ void mostrar(ArrayList* lista)
         if(al_isEmpty(lista)== 0)
         {
             system("cls");
-            printf("ALUMNOS\n");
+            printf("TRABAJADORES\n");
             printf("----------------------------------------------------\n\n");
             for(i=0;i<al_len(lista);i++)
             {
                 aux = (eTrabajador*) al_get(lista,i);
 
-                printf("id: %d nombre y apellido : %s trabajo: %s edad: %d\n",aux->id,aux->nombreyapellido,aux->profesion,aux->edad);
-                printf("----------------------------------------------------\n");
+                    printf("id: %d nombre y apellido : %s trabajo: %s edad: %d\n",aux->id,aux->nombreyapellido,aux->profesion,aux->edad);
+                    printf("----------------------------------------------------\n");
             }
 
         }
@@ -231,4 +231,277 @@ int archivo_salida(ArrayList* lista,FILE* archivo)
         }
 
     return salida;
+}
+
+int alta(ArrayList* lista,eTrabajador* trabajador)
+{
+    int retorno = 0;
+
+    int auxID;
+    char auxNombre[20];
+    char auxApellido[20];
+    char auxEmpleo[30];
+    int auxEdad;
+
+
+        trabajador = newTrabajador();
+
+        if(lista != NULL && trabajador != NULL)
+        {
+            system("cls");
+            fflush(stdin);
+            printf("Ingrese su nombre: ");
+            fflush(stdin);
+            gets(auxNombre);
+            printf("ingrese su apellido: ");
+            fflush(stdin);
+            gets(auxApellido);
+            printf("ingrese su edad: ");
+            scanf("%d",&auxEdad);
+            printf("ingrese su profesion: ");
+            fflush(stdin);
+            gets(auxEmpleo);
+
+                if(lista->isEmpty(lista) == 0)
+                {
+                    auxID = lista->len(lista)+1;
+                }
+                else
+                {
+                    if(lista->isEmpty(lista) == 1)
+                    {
+                        auxID = lista->isEmpty(lista)+16;
+                    }
+                }
+
+            setearDatos(trabajador,auxID,auxNombre,auxApellido,auxEmpleo,auxEdad);
+
+            lista->add(lista,trabajador);
+
+            retorno = 1;
+
+        }
+
+    return retorno;
+}
+
+/*eTrabajador**/ void setearDatos(eTrabajador* trabajador,int ID,char* nombre,char* apellido,char* profesion,int edad)
+{
+    ///int retorno = 0;
+
+            trabajador->id = ID;
+            strcpy(trabajador->nombreyapellido,nombre);
+            strcat(trabajador->nombreyapellido," ");
+            strcat(trabajador->nombreyapellido,apellido);
+            strcpy(trabajador->profesion,profesion);
+            trabajador = Mayuscula(trabajador);
+            trabajador->edad = edad;
+
+    ///return trabajador;
+}
+
+eTrabajador* Mayuscula(eTrabajador* trabajador)
+{
+    ///int i;
+    ///char auxiliar[30];
+
+        ///strcpy(auxiliar,trabajador->profesion);
+
+        if(strcmp(trabajador->profesion,"programador")== 0)
+        {
+            strcpy(trabajador->profesion,"Programador");
+        }
+
+
+    return trabajador;
+}
+
+int baja(ArrayList* lista,eTrabajador* trabajador)
+{
+    int retorno = -1;
+    int AuxId;
+    char opcion;
+    int continuacion = 1;
+    int comprobante = 1;
+
+    int posicion;
+
+        if(lista != NULL && trabajador != NULL)
+        {
+            do
+            {
+                system("cls");
+                mostrar(lista);
+                printf("\nIngrese el ID del trabajador a Borrar: ");
+                scanf("%d",&AuxId);
+
+                posicion = posicionTrabajador(lista,AuxId);
+
+                if(posicion != -1)
+                {
+                    trabajador = (eTrabajador*) lista->get(lista,posicion);
+                    do
+                    {
+                        system("cls");
+                        printf("||ID: %d ||Nombre y Apellido: %s ||Trabajo: %s ||Edad: %d\n\n",trabajador->id,trabajador->nombreyapellido,trabajador->profesion,trabajador->edad);
+                        printf("Desea continuar? (S/N)");
+                        opcion = tolower(getch());
+
+                        switch(opcion)
+                        {
+                            case 's':
+                                if(!lista->remove(lista,lista->indexOf(lista,trabajador)))
+                                {
+                                    system("cls");
+                                    printf("se a borrado con exito.\n");
+                                    system("pause");
+                                    comprobante = 0;
+                                    continuacion = 0;
+                                    retorno = 1;
+                                }
+                                else
+                                {
+                                    system("cls");
+                                    printf("se a producido un error por lo cual no se a podido borrar el dato.\n");
+                                    system("pause");
+                                    comprobante = 0;
+                                    continuacion = 0;
+                                    retorno = 1;
+                                }
+                                break;
+                            case 'n':
+                                system("cls");
+                                printf("Se a cancelado la operacion.\n");
+                                system("pause");
+                                comprobante = 0;
+                                break;
+                            default:
+                                printf("\n\n La opcion ingresada es invalida Por Favor reingrese.\n\n");
+                                system("pause");
+                            }
+                    }while(comprobante == 1);
+                }
+                else
+                {
+                    system("cls");
+                    printf("El ID ingresado es invalido, Por Favor Reingrese.\n");
+                    system("pause");
+                }
+
+            }while(continuacion == 1);
+
+        }
+        else
+        {
+            system("cls");
+            printf("Se a producido un error por lo cual no se puede acceder a la opcion.\n");
+            system("pause");
+        }
+
+    return retorno;
+}
+
+int posicionTrabajador(ArrayList* lista,int id)
+{
+    int Retorno = -1;
+    eTrabajador* trabajador = NULL;
+    int i;
+
+        if(lista != NULL )
+        {
+                for(i=0;i<lista->len(lista);i++)
+                {
+                    trabajador = (eTrabajador*) lista->get(lista,i);
+
+                        if(trabajador->id == id)
+                        {
+                            Retorno = i;
+                            break;
+                        }
+                }
+        }
+
+    return Retorno;
+}
+
+int modificar(ArrayList* lista,eTrabajador* trabajador)
+{
+    int retorno = 0;
+    char NewEmpleo[50];
+
+    int AuxId;
+    char opcion;
+    int continuacion = 1;
+    int comprobante = 1;
+
+    int posicion;
+
+        if(lista != NULL && trabajador != NULL)
+        {
+            do
+            {
+                system("cls");
+                mostrar(lista);
+                printf("\nIngrese el ID del trabajador a Modificar: ");
+                scanf("%d",&AuxId);
+
+                posicion = posicionTrabajador(lista,AuxId);
+
+                if(posicion != -1)
+                {
+                    trabajador = (eTrabajador*) lista->get(lista,posicion);
+                    do
+                    {
+                        system("cls");
+                        printf("||ID: %d ||Nombre y Apellido: %s ||Trabajo: %s ||Edad: %d\n\n",trabajador->id,trabajador->nombreyapellido,trabajador->profesion,trabajador->edad);
+                        printf("Desea continuar? (S/N)");
+                        opcion = tolower(getch());
+
+                        switch(opcion)
+                        {
+                            case 's':
+                                system("cls");
+                                printf("Ingrese el Nuevo empleo: ");
+                                fflush(stdin);
+                                gets(NewEmpleo);
+
+                                strcpy(trabajador->profesion,NewEmpleo);
+                                system("cls");
+                                printf("carga exitosa.\n\n");
+                                printf("ID: %d  Nombre y Apellido: %s  Profesion: %s  Edad: %d\n\n",trabajador->id,trabajador->nombreyapellido,trabajador->profesion,trabajador->edad);
+                                system("pause");
+                                comprobante = 0;
+                                continuacion = 0;
+                                retorno = 1;
+                                break;
+                            case 'n':
+                                system("cls");
+                                printf("Se a cancelado la operacion.\n");
+                                system("pause");
+                                comprobante = 0;
+                                break;
+                            default:
+                                printf("\n\n La opcion ingresada es invalida Por Favor reingrese.\n\n");
+                                system("pause");
+                            }
+                    }while(comprobante == 1);
+                }
+                else
+                {
+                    system("cls");
+                    printf("El ID ingresado es invalido, Por Favor Reingrese.\n");
+                    system("pause");
+                }
+
+            }while(continuacion == 1);
+
+        }
+        else
+        {
+            system("cls");
+            printf("Se a producido un error por lo cual no se puede acceder a la opcion.\n");
+            system("pause");
+        }
+
+    return retorno;
 }

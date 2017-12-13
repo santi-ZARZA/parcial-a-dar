@@ -68,3 +68,32 @@
 	"Funciones.h"
 	"ArrayList.h"
 
+1512550442 source:c:\users\santiago\desktop\zarza.santiago\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1512550442 c:\users\santiago\desktop\zarza.santiago\arraylist.h
+
+1513123353 source:c:\users\santiago\desktop\zarza.santiago\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+
+1513122220 c:\users\santiago\desktop\zarza.santiago\funciones.h
+	"ArrayList.h"
+
+1513123334 source:c:\users\santiago\desktop\zarza.santiago\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Funciones.h"
+	"ArrayList.h"
+

@@ -12,7 +12,8 @@ int main()
 {
     int continuacion = 1;
     char opcion;
-    int bandera = 0;
+    int PrimerBandera = 0;
+    int SegundaBandera = 0;
 
     FILE* archivo;
     ArrayList* lista_trabajadores = al_newArrayList();
@@ -25,8 +26,12 @@ int main()
         system("cls");
         printf("1- Cargar trabajadores\n");
         printf("2- filtrar trabajadores\n");
-        printf("3- listra filtrada\n");
-        printf("4- Salir\n");
+        printf("3- alta trabajador\n");
+        printf("4- baja trabajador\n");
+        printf("5- modificar empleo\n");
+        printf("6- mostrar trabajadores\n");
+        printf("7- listra filtrada\n");
+        printf("8- Salir\n");
         printf("\nIngrese la opcion deseada: ");
         opcion = getch();
 
@@ -39,11 +44,11 @@ int main()
                     printf("\nCarga exitosa\n\n");
                     mostrar(lista_trabajadores);
                     system("pause");
-                    bandera = 1;
+                    PrimerBandera = 1;
                 }
                 break;
             case '2':
-                if(bandera == 1)
+                if(PrimerBandera == 1)
                 {
                    if((lista_salida = filtrar(lista_trabajadores))!= NULL)
                     {
@@ -51,12 +56,47 @@ int main()
                         printf("se filtro exitosamente.\n\n");
                         mostrar(lista_salida);
                         system("pause");
+                        SegundaBandera = 1;
                     }
                 }
 
                 break;
             case '3':
-                if(bandera == 1)
+                if(alta(lista_trabajadores,trabajador))
+                {
+                    system("cls");
+                    printf("carga exitosa\n");
+                    system("pause");
+                    PrimerBandera = 1;
+                }
+                else
+                {
+                    system("cls");
+                    printf("carga Fallida\n");
+                    system("pause");
+                }
+                break;
+            case '4':
+                if(baja(lista_trabajadores,trabajador) == 1)
+                {
+                    system("cls");
+                    printf("Se a borrado con exito los datos del trabajador.\n");
+                    system("pause");
+                }
+                break;
+            case '5':
+                modificar(lista_trabajadores,trabajador);
+                break;
+            case '6':
+                if(PrimerBandera == 1)
+                {
+                    system("cls");
+                    mostrar(lista_trabajadores);
+                    system("pause");
+                }
+                break;
+            case '7':
+                if(SegundaBandera == 1)
                 {
                     if(archivo_salida(lista_salida,archivo)== 1)
                     {
@@ -65,9 +105,15 @@ int main()
                         system("pause");
                     }
                 }
+                else
+                {
+                    system("cls");
+                    printf("No se a filtrado a ningun trabajador\n");
+                    system("pause");
+                }
 
                 break;
-            case '4':
+            case '8':
                 continuacion = 0;
                 break;
             default:

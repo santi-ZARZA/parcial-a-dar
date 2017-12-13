@@ -21,5 +21,16 @@ void mostrar(ArrayList*);
 //void cambiarNota(ArrayList*);
 int archivo_salida(ArrayList*,FILE*);
 
+int alta(ArrayList*,eTrabajador*);
+int baja(ArrayList*,eTrabajador*);
+int modificar(ArrayList*,eTrabajador*);
+
+
+int posicionTrabajador(ArrayList*,int);
+void setearDatos(eTrabajador*,int,char*,char*,char*,int);
+eTrabajador* Mayuscula(eTrabajador*);
+
+
+
 
 
