@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1510397608 source:c:\users\santiago\desktop\proyecto_steam\main.c
+	"funciones.h"
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+
+1511047702 c:\users\santiago\desktop\proyecto_steam\funciones.h
+	"ArrayList.h"
+
+1511223799 source:c:\users\santiago\desktop\proyecto_steam\funciones.c
+	"ArrayList.h"
+	"funciones.h"
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+
+1510959644 source:c:\users\santiago\desktop\proyecto_steam\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1510397608 c:\users\santiago\desktop\proyecto_steam\arraylist.h
+
+1510410874 source:c:\users\alumno\desktop\tarea-a-terminar-master\proyecto_steam\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1510403534 c:\users\alumno\desktop\tarea-a-terminar-master\proyecto_steam\arraylist.h
+
+1510413838 source:c:\users\alumno\desktop\tarea-a-terminar-master\proyecto_steam\funciones.c
+	"ArrayList.h"
+	"funciones.h"
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+
+1510413727 c:\users\alumno\desktop\tarea-a-terminar-master\proyecto_steam\funciones.h
+	"ArrayList.h"
+
+1510403534 source:c:\users\alumno\desktop\tarea-a-terminar-master\proyecto_steam\main.c
+	"funciones.h"
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+
